@@ -1,0 +1,35 @@
+<nav>
+  <ul>
+ 
+    <li><a href="#"><b><%= @user_login %></b></a>
+      <ul class="submenu">
+       
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_all_photos">See all photos</a></li> 
+    <li><a href="/albums">See all albums</a></li> 
+     
+  </ul>
+  <br clear="all">
+</nav>
+
+<% album = Album.find_by_id(@album)%>
+<h1><%= album.album%></h1>
+
+<form method="post" enctype='multipart/form-data' action="/upload/<%= @album%>">
+  <!-- # Verificar que name corresponda al nombre/campo del modelo -->
+  <input type='file' name='photo[photo]'>
+  <br/><br/>
+  <input type='submit' value='Upload!'>
+</form>
+
+<ul>
+  <% @photos.each do |photo| %>
+    <div> 
+      <img src="<%= photo.photo_url(:thumb) %>">
+    </div>
+  <% end %>
+</ul>
+
+  

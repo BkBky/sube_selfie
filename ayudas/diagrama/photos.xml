@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+    <datatypes db="sqlite">
+        <group label="Affinity">
+            <type label="Text" default="" length="1" sql="TEXT" quote="'" color="rgb(255,200,200)"/>
+            <type label="Numeric" default="0" length="0" sql="NUMERIC" quote="" color="rgb(238,238,170)"/>
+            <type label="Integer" default="0" length="0" sql="INTEGER" quote="" color="rgb(238,238,170)"/>
+            <type label="Real" default="0" length="0" sql="REAL" quote="" color="rgb(238,238,170)"/>
+            <type label="None" default="" length="0" sql="NONE" quote="" color="rgb(200,255,200)"/>
+        </group>
+    </datatypes><table x="99" y="74" name="Users">
+        <row name="UserID" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default></row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>TEXT</datatype>
+            <default>NULL</default></row>
+        <row name="email" null="1" autoincrement="0">
+            <datatype>TEXT</datatype>
+            <default>NULL</default></row>
+        <row name="password" null="1" autoincrement="0">
+            <datatype>TEXT</datatype>
+            <default>NULL</default></row>
+        <key type="PRIMARY" name="">
+            <part>UserID</part>
+        </key>
+    </table>
+    <table x="504" y="67" name="Photos">
+        <row name="PhotoID" null="1" autoincrement="1">
+            <datatype>NUMERIC</datatype>
+            <default>NULL</default></row>
+        <row name="AlbumID" null="1" autoincrement="0">
+            <datatype>NUMERIC</datatype>
+            <default>NULL</default><relation table="Albums" row="AlbumId" />
+        </row>
+        <row name="Photo" null="1" autoincrement="0">
+            <datatype>TEXT</datatype>
+            <default>NULL</default></row>
+        <key type="PRIMARY" name="">
+            <part>PhotoID</part>
+        </key>
+    </table>
+    <table x="305" y="73" name="Albums">
+        <row name="AlbumId" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default></row>
+        <row name="UserId" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default><relation table="Users" row="UserID" />
+        </row>
+        <row name="Album" null="1" autoincrement="0">
+            <datatype>TEXT</datatype>
+            <default>NULL</default></row>
+        <key type="PRIMARY" name="">
+            <part>AlbumId</part>
+        </key>
+    </table>
+</sql>

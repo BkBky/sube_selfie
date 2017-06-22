@@ -1,0 +1,27 @@
+<nav>
+  <ul>
+ 
+    <li><a href="#"><b><%= @user_login %></b></a>
+      <ul class="submenu">
+       
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_all_photos">See all photos</a></li> 
+    <li><a href="/albums">See all albums</a></li> 
+     
+  </ul>
+  <br clear="all">
+</nav>
+
+<h2>Crea un album o entra a algun album para agregar más fotos</h2>
+
+<form action="/create_album" method="post">
+    <input type="text" name="album" placeholder="Album name">
+    <input type="submit" value="Submit">
+  </form><br><br>
+
+
+  <% @albums.each do |album| %>
+  <a href="/show_album/<%= album.id%>"><%= album.id %>. <%= album.album %></a> <br><br>
+  <% end %>

@@ -1,0 +1,29 @@
+<nav>
+  <ul>
+ 
+    <li><a href="#"><b><%= @user_login %></b></a>
+      <ul class="submenu">
+       
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_all_photos">See all photos</a></li> 
+    <li><a href="/albums">See all albums</a></li> 
+     
+  </ul>
+  <br clear="all">
+</nav>
+
+
+<h1>Estas son todas las fotos</h1>
+
+<ul>
+  <% @photos.each do |photo| %>
+    <div> 
+      <img src="<%= photo.photo_url(:thumb) %>"><br>
+      
+    </div>
+  <% end %>
+</ul>
+
+  
